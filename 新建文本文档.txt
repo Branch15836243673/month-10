@@ -1,0 +1,30 @@
+1.用户在客户端发起请求进入laravel框架的public下面的index.php文件中处理
+、2.根据用户的请求发送到app/http/kenerl.php 的http控制台中进行配置错误处理，配置日志记录，检查应用程序等操作。http内核定义了在用户请求被处理之前，必须经过http内核的中间件处理，才能进行其他处理
+、3.接着用户请求被发送到应用程序在config/app.php配置文件中provies配置的服务提供器来引导laravel框架的各种组件完成需要的功能操作
+、4.紧接着用户请求被发送到laravel框架的路由器进行调度，被发送到控制器进行处理，调用模型层处理业务逻辑，接着返回个控制器视图层渲
+染数据
+
+cookie与session的区别
+1.储存数据位置不同
+cookie储存数据到客户端浏览器
+session储存数据到服务器端
+2.储存容量不同
+单个cookie储存容量<=4kb ,一个网站最多储存20个cookie
+session的储存在服务器没有上线，但是对服务器端的性能考虑 ，对session进行删除机制
+3.储存方式不同
+cookie只能储存ASCll字符串，并且需要经过编码处理成UnIcode字符或二进制数据
+session能储存任何类型的数据，如string，int等
+4.隐私策略不同
+cookie 是存放在客户端浏览器上的  ， 是能进行获取和分析的 ，对用户信息的保障不是太好
+session对用户是透明的，不存在敏感信息的泄露
+5.有效期的不同
+开发者可以对cookie的属性进行设置，达到长期有效的cookie保存
+而session的有效期依赖jsessionid 的cookie ，当名为jsessionid的cookie的默认储存的有效期为-1，浏览器关闭 ，session消失
+6.跨域名不同
+cookie 支持跨域名访问
+session不支持跨域名访问
+7.支持使用的方式不同
+浏览器支持cookie：
+每个窗口都能使用该用户的cookie信息
+浏览器不支持cookie：
+需要对session进行url地址重写 ，只要是session的url都需要进行重写，否则回话跟踪失效
